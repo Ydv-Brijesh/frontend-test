@@ -24,7 +24,8 @@
                                 <mat-form-field appearance="fill">
                                     <mat-label>Enter your email</mat-label>
                                     <mat-icon matSuffix>email</mat-icon>
-                                    <input formControlName="email" matInput placeholder="pat@example.com" required>
+                                    <input formControlName="email" matInput placeholder="pat@example.com" required
+                                        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$">
                                     <mat-error class="text-danger" *ngIf="loginForm.get('email') && myform.submitted"
                                         class='alert alert-danger'>
                                         email is required
@@ -52,7 +53,7 @@
                                         required>
                                     <mat-error class="text-danger" *ngIf="loginForm.get('password') && myform.submitted"
                                         class='alert alert-danger'>
-                                        password is required
+                                        password is required it must max six digit
                                     </mat-error>
                                     <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                                         [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
