@@ -1,0 +1,57 @@
+<section>
+    <div id="main-bg" class="container">
+        <section class="inner-body">
+            <mat-card>
+                <h1>Sign Up</h1>
+                <p>Sign Up to my portal</p>
+                <form class="example-form">
+                    <table class="example-full-width" cellspacing="0">
+                        <tr>
+                            <td>
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-icon matSuffix>person</mat-icon>
+                                    <mat-label>Full Name</mat-label>
+                                    <input type="text" matInput placeholder="Enter Fiest Name" [formControl]="name"
+                                        required>
+                                    <mat-error *ngIf="name.invalid">{{getErrorMessagename()}}</mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter your email</mat-label>
+                                    <mat-icon matSuffix>email</mat-icon>
+                                    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-icon matSuffix>phone</mat-icon>
+                                    <mat-label>Mobile</mat-label>
+                                    <input type="text" matInput placeholder="Enter Number" required
+                                        [formControl]="number">
+                                    <mat-error *ngIf="number.invalid">{{getErrorMessagenumber()}}</mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter your password</mat-label>
+                                    <input matInput [type]="hide ? 'password' : 'text'" required
+                                        [formControl]="password">
+                                    <mat-error *ngIf="password.invalid">{{getErrorMessagepassword()}}</mat-error>
+                                    <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                        [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </table>
+                    <div align="end">
+                        <button mat-raised-button color="primary">Submit</button>
+                    </div>
+                </form>
+            </mat-card>
+        </section>
+    </div>
+</section>
