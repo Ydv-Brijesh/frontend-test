@@ -39,9 +39,7 @@ export class LoginComponent implements OnInit {
     // this.userData.saveUser(data).subscribe((result)=>{
     //   console.log(result)
     // })
-    console.log(this.loginForm.valid);
-    this.toastr.error('Message Error!', 'Title Error!');
-
+ 
 
     if (this.loginForm.valid) {
       this.userData.saveUser(data).subscribe((result) => {
@@ -49,6 +47,10 @@ export class LoginComponent implements OnInit {
       })
       this.loginForm.reset();
       this.toastr.success('Message Success!', 'Title Success!');
+    }else{
+      console.log(this.loginForm.valid);
+      this.toastr.error('Message Error!', 'Title Error!');
+
     }
   }
 }

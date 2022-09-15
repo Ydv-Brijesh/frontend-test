@@ -1,1 +1,38 @@
-<p>sign-up works!</p>
+<section>
+    <div id="main-bg" class="container">
+        <section class="inner-body">
+            <mat-card>
+                <h1>Log In</h1>
+                <p> <a routerLink="/">Sign-Up here</a> portal</p>
+                <form [formGroup]="signupForm" (ngSubmit)="signupUser(myform.value)" #myform="ngForm">
+                    <table class="example-full-width" cellspacing="0">
+                        <tr>
+                            <td>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter your email</mat-label>
+                                    <mat-icon mat-icon-button matSuffix> email</mat-icon>
+                                    <input formControlName="email" matInput placeholder="Registered email" required>
+                                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                                </mat-form-field>
+                            </td>
+                            <td>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter your password</mat-label>
+                                    <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+                                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                        [attr.aria-pressed]="hide">
+                                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    </button>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </table>
+                    <div align="end">
+                        <button mat-raised-button color="primary">Log In</button>
+                        <!-- [disabled]="!loginForm.valid" -->
+                    </div>
+                </form>
+            </mat-card>
+        </section>
+    </div>
+</section>

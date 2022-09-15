@@ -3,16 +3,17 @@
         <section class="inner-body">
             <mat-card>
                 <h1>Sign Up</h1>
-                <p>Sign Up to my portal</p>
-                <form class="example-form" [formGroup]="loginForm" (ngSubmit)="loginUser(myform.value)" #myform="ngForm">
+                <p> <a routerLink="Sign-Up">login here</a> portal</p>
+                <form class="example-form" [formGroup]="loginForm" (ngSubmit)="loginUser(myform.value)"
+                    #myform="ngForm">
                     <table class="example-full-width" cellspacing="0">
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width" appearance="fill">
                                     <mat-icon matSuffix>person</mat-icon>
                                     <mat-label>Full Name</mat-label>
-                                    <input formControlName="username" type="text" matInput placeholder="Enter Fiest Name"
-                                        required>
+                                    <input formControlName="username" type="text" matInput
+                                        placeholder="Enter Fiest Name" required>
                                     <mat-error class="text-danger" *ngIf="loginForm.get('username') && myform.submitted"
                                         class='alert alert-danger'>
                                         name is required
@@ -62,7 +63,7 @@
                         </tr>
                     </table>
                     <div align="end">
-                        <button mat-raised-button color="primary">Submit</button>
+                        <button mat-raised-button color="primary" routerLink="Sign-Up">Sign Up</button>
                         <!-- [disabled]="!loginForm.valid" -->
                     </div>
                 </form>
