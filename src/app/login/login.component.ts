@@ -9,30 +9,41 @@ import { AuthService } from '../services/auth.service';
 })
 
 export class LoginComponent implements OnInit {
-  auth: any
+  users: any
   hide = true;
 
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required,  Validators.email]),
-    user: new FormControl('', [Validators.required]),
-    number: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.maxLength(10), Validators.minLength(10)]),
+    username: new FormControl('', [Validators.required]),
+    phone: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.maxLength(10), Validators.minLength(10)]),
     password: new FormControl('', [Validators.required, Validators.maxLength(6)]),
 
   })
   
 
-  constructor(private authservice: AuthService) { }
+  constructor(private userData: AuthService) {
+
+    // this.userData.users().subscribe((data)=>
+    // {
+    //   console.log("Student Data",data);
+    // })
+   }
 
 
   ngOnInit(): void {
   }
 
-  loginUser() {
+  loginUser(data:any) {
+    // this.userData.saveUser(data).subscribe((result)=>{
+    //   console.log(result)
+    // })
     console.log(this.loginForm.valid);
 
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
+      this.userData.saveUser(data).subscribe((result) => {
+        console.log(result)
+      })
     }
   }
 }

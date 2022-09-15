@@ -4,16 +4,16 @@
             <mat-card>
                 <h1>Sign Up</h1>
                 <p>Sign Up to my portal</p>
-                <form class="example-form" [formGroup]="loginForm" (ngSubmit)="loginUser()" #myform="ngForm">
+                <form class="example-form" [formGroup]="loginForm" (ngSubmit)="loginUser(myform.value)" #myform="ngForm">
                     <table class="example-full-width" cellspacing="0">
                         <tr>
                             <td>
                                 <mat-form-field class="example-full-width" appearance="fill">
                                     <mat-icon matSuffix>person</mat-icon>
                                     <mat-label>Full Name</mat-label>
-                                    <input formControlName="user" type="text" matInput placeholder="Enter Fiest Name"
+                                    <input formControlName="username" type="text" matInput placeholder="Enter Fiest Name"
                                         required>
-                                    <mat-error class="text-danger" *ngIf="loginForm.get('user') && myform.submitted"
+                                    <mat-error class="text-danger" *ngIf="loginForm.get('username') && myform.submitted"
                                         class='alert alert-danger'>
                                         name is required
                                     </mat-error>
@@ -38,9 +38,9 @@
                                 <mat-form-field class="example-full-width" appearance="fill">
                                     <mat-icon matSuffix>phone</mat-icon>
                                     <mat-label>Mobile</mat-label>
-                                    <input formControlName="number" type="text" matInput placeholder="Enter Number"
+                                    <input formControlName="phone" type="text" matInput placeholder="Enter Number"
                                         required>
-                                    <mat-error class="text-danger" *ngIf="loginForm.get('number') && myform.submitted"
+                                    <mat-error class="text-danger" *ngIf="loginForm.get('phone') && myform.submitted"
                                         class='alert alert-danger'>
                                         number is required
                                     </mat-error>
